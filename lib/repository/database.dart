@@ -25,7 +25,7 @@ class DatabaseService {
     
     );
   }
-  List<Intern>  _internListFromSnapshot(QuerySnapshot snapshot) {
+  List<Intern>  fromJson(QuerySnapshot snapshot) {
     return snapshot.documents.map((doc){
       //print(doc.data);
       return Intern(
@@ -39,7 +39,7 @@ class DatabaseService {
 
     Stream<List<Intern>> get interns {
     return internsCollection.snapshots()
-      .map(_internListFromSnapshot);
+      .map(fromJson);
   }
 
   Stream<UserData> get userData {

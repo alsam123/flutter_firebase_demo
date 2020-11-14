@@ -1,16 +1,16 @@
-import 'package:firebase_demo/services/auth.dart';
+import 'package:firebase_demo/repository/auth.dart';
 import 'package:flutter/material.dart';
 
-class Register extends StatefulWidget {
+class SignIn extends StatefulWidget {
 
   final Function toggleView;
-  Register({ this.toggleView });
+  SignIn({ this.toggleView });
 
   @override
-  _RegisterState createState() => _RegisterState();
+  _SignInState createState() => _SignInState();
 }
 
-class _RegisterState extends State<Register> {
+class _SignInState extends State<SignIn> {
 
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
@@ -27,11 +27,11 @@ class _RegisterState extends State<Register> {
       appBar: AppBar(
         backgroundColor: Colors.brown[400],
         elevation: 0.0,
-        title: Text('Sign up '),
+        title: Text('Sign in '),
         actions: <Widget>[
           FlatButton.icon(
             icon: Icon(Icons.person),
-            label: Text('Sign In'),
+            label: Text('Register'),
             onPressed: () => widget.toggleView(),
           ),
         ],
@@ -52,7 +52,7 @@ class _RegisterState extends State<Register> {
               SizedBox(height: 20.0),
               TextFormField(
                 obscureText: true,
-                validator: (val) => val.length < 1 ? 'Enter a password 6+ chars long' : null,
+                validator: (val) => val.length < 2 ? 'Enter a password 1+ chars long' : null,
                 onChanged: (val) {
                   setState(() => password = val);
                 },
@@ -61,15 +61,15 @@ class _RegisterState extends State<Register> {
               RaisedButton(
                 color: Colors.pink[400],
                 child: Text(
-                  'Register',
+                  'Sign In',
                   style: TextStyle(color: Colors.white),
                 ),
                 onPressed: () async {
                   if(_formKey.currentState.validate()){
-                    dynamic result = await _auth.registerWithEmailAndPassword(email, password);
+                    dynamic result = await _auth.signInWithEmailAndPassword(email, password);
                     if(result == null) {
                       setState(() {
-                        error = 'Please supply a valid email';
+                        error = 'Could not sign in with those credentials';
                       });
                     }
                   }
@@ -79,7 +79,7 @@ class _RegisterState extends State<Register> {
               Text(
                 error,
                 style: TextStyle(color: Colors.red, fontSize: 14.0),
-              )
+              ),
             ],
           ),
         ),

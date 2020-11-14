@@ -1,7 +1,7 @@
 import 'package:firebase_demo/models/user.dart';
-import 'package:firebase_demo/screens/authenticate/authenticate.dart';
-import 'package:firebase_demo/screens/authenticate/sign_in.dart';
-import 'package:firebase_demo/screens/home/home.dart';
+import 'package:firebase_demo/UI/authenticate/authenticate.dart';
+import 'package:firebase_demo/UI/authenticate/sign_in.dart';
+import 'package:firebase_demo/UI/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

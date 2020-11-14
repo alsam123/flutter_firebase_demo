@@ -1,6 +1,6 @@
 
 import 'package:firebase_demo/models/user.dart';
-import 'package:firebase_demo/services/database.dart';
+import 'package:firebase_demo/repository/database.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

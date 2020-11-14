@@ -1,10 +1,10 @@
 import 'package:firebase_demo/models/Interns.dart';
-import 'package:firebase_demo/services/auth.dart';
+import 'package:firebase_demo/repository/auth.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_demo/services/database.dart';
+import 'package:firebase_demo/repository/database.dart';
 
 import 'package:provider/provider.dart';
-import 'package:firebase_demo/screens/home/interns_list.dart';
+import 'package:firebase_demo/UI/home/interns_list.dart';
 
 import 'adduser_form.dart';
 

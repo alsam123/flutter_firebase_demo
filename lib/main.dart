@@ -1,6 +1,6 @@
   
-import 'package:firebase_demo/screens/wrapper.dart';
-import 'package:firebase_demo/services/auth.dart';
+import 'package:firebase_demo/UI/wrapper.dart';
+import 'package:firebase_demo/repository/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_demo/models/user.dart';
