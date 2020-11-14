@@ -6,3 +6,13 @@ class User {
   User({ this.uid });
 
 }
+class UserData {
+
+  final String uid;
+  final String name;
+  final String department;
+  
+
+  UserData({ this.uid, this.department,this.name });
+
+}

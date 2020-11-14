@@ -1,5 +1,6 @@
 import 'package:firebase_demo/models/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_demo/services/database.dart';
 
 class AuthService {
 
@@ -44,8 +45,10 @@ class AuthService {
   // register with email and password
   Future registerWithEmailAndPassword(String email, String password) async {
     try {
+   
       AuthResult result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
       FirebaseUser user = result.user;
+      await DatabaseService(uid: user.uid).updateUserData('Unknown User','Registered,but record not added ');
       return _userFromFirebaseUser(user);
     } catch (error) {
       print(error.toString());
